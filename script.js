@@ -15,44 +15,48 @@ function getComputerChoice(){
 
 //write a function tha takes playerSelection and computerSelection as input
 //compare these parameters and decide the winner
-function playRound(playerSelection, computerSelection){
+function playRound(e){
+    playerSelection = e.target.textContent;
+    computerSelection = getComputerChoice();
+    console.log(computerSelection)
+
     //condition for when the computerSelection is "rock"
     playerSelection = playerSelection.toLowerCase();
     if(computerSelection == "rock"){
         if(playerSelection == "paper"){
-            return "You Win! Paper beats Rock";
+            console.log("You Win! Paper beats Rock");
         }
         else if(playerSelection == "rock"){
-            return "It's a Draw!";
+            console.log("It's a Draw!")
         }
         else{
-            return "You Lose! Rock Beats Scissors";
+            console.log("You Lose! Rock Beats Scissors");
         }
     }
 
     //condition for when the computerSelection is "paper"
     if(computerSelection == "paper"){
         if(playerSelection == "scissors"){
-            return "You Win! Scissors beats Paper";
+            console.log("You Win! Scissors beats Paper");
         }
         else if(playerSelection == "paper"){
-            return "It's a Draw!";
+            console.log("It's a Draw!");
         }
         else{
-            return "You Lose! Paper Beats Rock";
+            console.log("You Lose! Paper Beats Rock");
         }
     }
 
     //condition for when the computerSelection is "scissors"
     if(computerSelection == "scissors"){
         if(playerSelection == "rock"){
-            return "You Win! Rock beats Scissors";
+            console.log("You Win! Rock beats Scissors");
         }
         else if(playerSelection == "scissors"){
-            return "It's a Draw!";
+            console.log("It's a Draw!");
         }
         else{
-            return "You Lose! Scissors Beats paper";
+            console.log("You Lose! Scissors Beats paper");
         }
     }
 }
@@ -66,3 +70,12 @@ function playRound(playerSelection, computerSelection){
 //         console.log(playRound(playerSelection, computerSelection));
 //     }
 // }
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => button.addEventListener('click', playRound));
+
+
+
+
+
