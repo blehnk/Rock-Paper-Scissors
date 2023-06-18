@@ -58,11 +58,11 @@ function playRound(playerSelection, computerSelection){
 }
 
 //create the main function to take input from the user and play the game 5 times
-function game(){
-    for(let i = 0; i < 5; i++){
-        let playerSelection = prompt("What's your choice for this round?");
-        let computerSelection = getComputerChoice();
+// function game(){
+//     for(let i = 0; i < 5; i++){
+//         let playerSelection = prompt("What's your choice for this round?");
+//         let computerSelection = getComputerChoice();
     
-        console.log(playRound(playerSelection, computerSelection));
-    }
-}
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+// }
