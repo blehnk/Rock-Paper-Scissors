@@ -24,39 +24,39 @@ function playRound(e){
     playerSelection = playerSelection.toLowerCase();
     if(computerSelection == "rock"){
         if(playerSelection == "paper"){
-            console.log("You Win! Paper beats Rock");
+            displayDiv.textContent = "You Win! Paper beats Rock";
         }
         else if(playerSelection == "rock"){
-            console.log("It's a Draw!")
+            displayDiv.textContent = "It's a Draw!";
         }
         else{
-            console.log("You Lose! Rock Beats Scissors");
+            displayDiv.textContent = "You Lose! Rock Beats Scissors";
         }
     }
 
     //condition for when the computerSelection is "paper"
     if(computerSelection == "paper"){
         if(playerSelection == "scissors"){
-            console.log("You Win! Scissors beats Paper");
+            displayDiv.textContent = "You Win! Scissors beats Paper";
         }
         else if(playerSelection == "paper"){
-            console.log("It's a Draw!");
+            displayDiv.textContent = "It's a Draw!";
         }
         else{
-            console.log("You Lose! Paper Beats Rock");
+            displayDiv.textContent = "You Lose! Paper Beats Rock";
         }
     }
 
     //condition for when the computerSelection is "scissors"
     if(computerSelection == "scissors"){
         if(playerSelection == "rock"){
-            console.log("You Win! Rock beats Scissors");
+            displayDiv.textContent = "You Win! Rock beats Scissors";
         }
         else if(playerSelection == "scissors"){
-            console.log("It's a Draw!");
+            displayDiv.textContent = "It's a Draw!";
         }
         else{
-            console.log("You Lose! Scissors Beats paper");
+            displayDiv.textContent = "You Lose! Scissors Beats paper";
         }
     }
 }
@@ -71,7 +71,14 @@ function playRound(e){
 //     }
 // }
 
+//Create a div to display the result in the page
+const displayDiv = document.createElement('div');
 
+//Append the div to the body of the HTML
+const body = document.querySelector('body');
+body.appendChild(displayDiv);
+
+//Create a click event for selecting the user's choice
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => button.addEventListener('click', playRound));
 
