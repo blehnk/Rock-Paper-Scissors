@@ -19,7 +19,6 @@ let yourScore = 0;
 let cpuScore = 0;
 
 function playRound(e){
-
     playerSelection = e.target.textContent;
     computerSelection = getComputerChoice();
     console.log(computerSelection)
@@ -73,7 +72,10 @@ function playRound(e){
     activeResultDiv.textContent = `YOUR SCORE: ${yourScore}, CPU SCORE: ${cpuScore}`;
 
     if(yourScore == 5 || cpuScore == 5){
-        alert("game over!");
+        let win = yourScore > cpuScore ? "YOU" : "CPU";
+        body.style.display = "none";
+        alert(`GAME OVER! ${win} Wins`);
+        
     }
 }
 
