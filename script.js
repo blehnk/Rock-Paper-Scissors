@@ -15,7 +15,11 @@ function getComputerChoice(){
 
 //write a function tha takes playerSelection and computerSelection as input
 //compare these parameters and decide the winner
+let yourScore = 0;
+let cpuScore = 0;
+
 function playRound(e){
+
     playerSelection = e.target.textContent;
     computerSelection = getComputerChoice();
     console.log(computerSelection)
@@ -24,12 +28,14 @@ function playRound(e){
     playerSelection = playerSelection.toLowerCase();
     if(computerSelection == "rock"){
         if(playerSelection == "paper"){
+            yourScore += 1;
             displayDiv.textContent = "You Win! Paper beats Rock";
         }
         else if(playerSelection == "rock"){
             displayDiv.textContent = "It's a Draw!";
         }
         else{
+            cpuScore += 1;
             displayDiv.textContent = "You Lose! Rock Beats Scissors";
         }
     }
@@ -37,12 +43,14 @@ function playRound(e){
     //condition for when the computerSelection is "paper"
     if(computerSelection == "paper"){
         if(playerSelection == "scissors"){
+            yourScore += 1;
             displayDiv.textContent = "You Win! Scissors beats Paper";
         }
         else if(playerSelection == "paper"){
             displayDiv.textContent = "It's a Draw!";
         }
         else{
+            cpuScore += 1;
             displayDiv.textContent = "You Lose! Paper Beats Rock";
         }
     }
@@ -50,33 +58,36 @@ function playRound(e){
     //condition for when the computerSelection is "scissors"
     if(computerSelection == "scissors"){
         if(playerSelection == "rock"){
+            yourScore += 1;
             displayDiv.textContent = "You Win! Rock beats Scissors";
         }
         else if(playerSelection == "scissors"){
             displayDiv.textContent = "It's a Draw!";
         }
         else{
+            cpuScore += 1;
             displayDiv.textContent = "You Lose! Scissors Beats paper";
         }
     }
+
+    activeResultDiv.textContent = `YOUR SCORE: ${yourScore}, CPU SCORE: ${cpuScore}`;
+
+    if(yourScore == 5 || cpuScore == 5){
+        alert("game over!");
+    }
 }
 
-//create the main function to take input from the user and play the game 5 times
-// function game(){
-//     for(let i = 0; i < 5; i++){
-//         let playerSelection = prompt("What's your choice for this round?");
-//         let computerSelection = getComputerChoice();
-    
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-// }
 
 //Create a div to display the result in the page
 const displayDiv = document.createElement('div');
 
+//Create a div to display the active result of the player and the CPU
+const activeResultDiv = document.createElement('div');
+
 //Append the div to the body of the HTML
 const body = document.querySelector('body');
 body.appendChild(displayDiv);
+body.appendChild(activeResultDiv);
 
 //Create a click event for selecting the user's choice
 const buttons = document.querySelectorAll('button');
